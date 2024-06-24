@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/0xArch3r/opentdf-cli/handler"
+	"github.com/0xArch3r/opentdf-cli/client"
 
 	"github.com/spf13/cobra"
 )
@@ -24,7 +24,7 @@ func init() {
 }
 
 func applyNamespaceHandler(cmd *cobra.Command, args []string) {
-	s := handler.NewSDK(cmd)
+	s := client.NewSDK(cmd)
 	defer s.Close()
 
 	if ns_file == "" {

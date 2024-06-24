@@ -6,7 +6,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/0xArch3r/opentdf-cli/handler"
+	"github.com/0xArch3r/opentdf-cli/client"
 
 	"github.com/spf13/cobra"
 )
@@ -25,7 +25,7 @@ func init() {
 }
 
 func listAttributesHandler(cmd *cobra.Command, args []string) {
-	s := handler.NewSDK(cmd)
+	s := client.NewSDK(cmd)
 
 	attributes, err := s.ListAttributes(ns)
 	if err != nil {

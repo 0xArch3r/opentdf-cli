@@ -8,7 +8,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/0xArch3r/opentdf-cli/handler"
+	"github.com/0xArch3r/opentdf-cli/client"
 
 	"github.com/spf13/cobra"
 )
@@ -55,7 +55,7 @@ func encryptHandler(cmd *cobra.Command, args []string) {
 		attrs = append(attrs, attr)
 	}
 
-	s := handler.NewSDK(cmd)
+	s := client.NewSDK(cmd)
 	defer s.Close()
 
 	_, ciphertext, err := s.CreateTDF(in_file, attrs...)

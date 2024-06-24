@@ -8,7 +8,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/0xArch3r/opentdf-cli/handler"
+	"github.com/0xArch3r/opentdf-cli/client"
 
 	"github.com/spf13/cobra"
 )
@@ -47,7 +47,7 @@ func handleDecrypt(cmd *cobra.Command, args []string) {
 		os.Exit(1)
 	}
 
-	s := handler.NewSDK(cmd)
+	s := client.NewSDK(cmd)
 	defer s.Close()
 
 	_, plaintext, err := s.LoadTDF(in_file)

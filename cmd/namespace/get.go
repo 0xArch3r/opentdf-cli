@@ -7,8 +7,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/0xArch3r/opentdf-cli/handler"
-
+	"github.com/0xArch3r/opentdf-cli/client"
 	"github.com/opentdf/platform/protocol/go/policy/namespaces"
 	"github.com/spf13/cobra"
 )
@@ -28,7 +27,7 @@ func init() {
 }
 
 func getNamespaceHandler(cmd *cobra.Command, args []string) {
-	s := handler.NewSDK(cmd)
+	s := client.NewSDK(cmd)
 	defer s.Close()
 
 	if ns_id == "" {
